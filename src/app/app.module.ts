@@ -1,5 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+// Import the stocks service and the HttpClientModule (used in the service) so it can be registered in the
+// application below.
+import { HttpClientModule } from '@angular/common/http';
+import { StocksService } from './services/stocks.service';
 
 // Imports the newly CLI generated 'main' app component.
 import { AppComponent } from './app.component';
@@ -17,10 +21,11 @@ import { AppComponent } from './app.component';
   ],
   // List of other modules used in the app. This list can consist of own created, or third party.
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   // List of services used in the app.
-  providers: [],
+  providers: [StocksService],
   // Declares which component to use as the first to bootstrap the application. Typically, this will be
   // the same App component (already set up by CLI).
   // angular.json contains "main": "src/main.ts" which defines the bootstrap which calls the main.ts as the
