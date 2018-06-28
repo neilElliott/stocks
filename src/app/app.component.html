@@ -12,6 +12,12 @@
       </nav>
     </div>
   </header>
-  <main class="mdl-layout__content" style="padding: 20px;"></main>
+  <!-- *ngIf directive only displays the <summary> element if the expression evaluates true.   -->
+  <main class="mdl-layout__content"
+        style="padding: 20px;"
+        *ngIf="stocks">
+    <!-- The first value of the stocks array is bond into the stock property -->
+    <summary [stock]="stocks[0]"></summary>
+  </main>
 </div>
 

@@ -1,0 +1,31 @@
+<!--
+  [] is a directive that modifies the behaviour and display of the DOM.
+  Allows conditional logic to modify how the template is behaves or rendered.
+  [ngClass] can add or remove CSS classes:
+    Get the increase CSS if the isPositive() condition is true. Similar to the decrease.
+ -->
+<div class="mdl-card stock-card mdl-shadow--2dp"
+     [ngClass]="{increase: isPositive(), decrease: isNegative()}"
+     style="width: 100%;">
+  <span>
+    <div class="mdl-card__title">
+      <h4 style="color: #fff; margin: 0">
+        <!--
+          {{ }} another example of interpolation containing an Angular expression and is evaluated
+          against the controller.
+          Looks for a property in the controller called stocks. If not found would normally throw
+          an error but with the ? operator it will silently fail and not display anything.
+         -->
+        {{ stock?.symbol?.toUpperCase() }}<br />
+        <!--
+          Pipes (|) are added to the expression to format the output before it is displayed.
+          Pipes are named and optionally configured with values separated with :
+          In this example, the date returned is piped (formatted) through the Currency pipe,
+          which converts the float into a financial figure based on the USD figure.
+        -->
+        {{ stock?.lastTradePriceOnly | currency:'USD':'symbol':'.2' }}<br />
+        {{ stock?.change | currency:'USD':'symbol':'.2' }} ({{ stock?.changeInPercent | percent:'.2' }})
+      </h4>
+    </div>
+  </span>
+</div>
