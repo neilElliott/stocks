@@ -7,6 +7,7 @@ import { StocksService } from './services/stocks.service';
 
 // Imports the newly CLI generated 'main' app component.
 import { AppComponent } from './app.component';
+import { SummaryComponent } from './components/summary/summary.component';
 
 /**
  * The packaging that tells Angular what's available to render. A module describes the various dependencies
@@ -17,7 +18,8 @@ import { AppComponent } from './app.component';
 @NgModule({
   // List of components and directives used by the entire application.
   declarations: [
-    AppComponent // CLI generated "main" app component. Other components added here.
+    AppComponent, // CLI generated "main" app component. Other components added here.
+    SummaryComponent
   ],
   // List of other modules used in the app. This list can consist of own created, or third party.
   imports: [

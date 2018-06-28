@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StocksService, StockInterface } from './services/stocks.service';
 
 /**
  * The @Component annotation declares that this class, AppComponent, is a component by accepting an object,
@@ -15,7 +16,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  // A property rendered in the HTML template app.component.html {{ title }} placeholder.
+  // A property rendered in the HTML template app.component.html {{ stocks }} placeholder.
   // This is a common convention for binding a value between the template and the component.
-  title = 'app';
+
+  // Property to maintain loaded stock data.
+  stocks: Array<StockInterface>;
+
+  constructor(service: StocksService) {
+    // call stock service to get the stock data.
+    service.load(['AAPL']).subscribe(stocks => {
+      this.stocks = stocks;
+    });
+  }
 }
