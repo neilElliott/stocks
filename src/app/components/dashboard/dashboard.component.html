@@ -1,0 +1,16 @@
+<div class="mdl-grid">
+  <!-- Use ngIf to show a loading message if the stocks property isn't ready -->
+  <div class="mdl-cell mdl-cell--12-col"
+       *ngIf="!stocks"
+       style="text-align: center;">
+    Loading
+  </div>
+  <!--
+    Instantiate a summary component for each stock and pass it a stock data.
+    Each copy of the Summary component is distinct from the others and don't share data.
+   -->
+  <div class="mdl-cell mdl-cell--3-col"
+       *ngFor="let stock of stocks">
+    <summary [stock]="stock"></summary>
+  </div>
+</div>

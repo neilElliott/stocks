@@ -4,13 +4,15 @@ import { StocksService } from './services/stocks.service';
 import { SummaryComponent } from './components/summary/summary.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        SummaryComponent
+        SummaryComponent,
+        DashboardComponent
       ],
       imports: [
         BrowserModule,

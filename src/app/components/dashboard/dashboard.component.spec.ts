@@ -1,0 +1,37 @@
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { DashboardComponent } from './dashboard.component';
+import { StocksService } from '../../services/stocks.service';
+import { SummaryComponent } from '../summary/summary.component';
+import {HttpClientModule} from '@angular/common/http';
+
+describe('DashboardComponent', () => {
+  let component: DashboardComponent;
+  let fixture: ComponentFixture<DashboardComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        DashboardComponent,
+        SummaryComponent
+      ],
+      imports: [
+        HttpClientModule
+      ],
+      providers: [
+        StocksService
+      ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(DashboardComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
