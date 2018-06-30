@@ -5,8 +5,9 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-// Manually added services
+// Manually added services/imports
 import { StocksService } from './services/stocks.service';
+import { AppRoutes } from './app.routes';
 
 // Imports the newly CLI generated 'main' app component.
 import { AppComponent } from './app.component';
@@ -32,7 +33,8 @@ import { ManageComponent } from './components/manage/manage.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AppRoutes
   ],
   // List of services used in the app.
   providers: [StocksService],
