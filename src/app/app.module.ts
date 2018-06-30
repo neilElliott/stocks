@@ -3,12 +3,16 @@ import { NgModule } from '@angular/core';
 // Import the stocks service and the HttpClientModule (used in the service) so it can be registered in the
 // application below.
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
+// Manually added services
 import { StocksService } from './services/stocks.service';
 
 // Imports the newly CLI generated 'main' app component.
 import { AppComponent } from './app.component';
 import { SummaryComponent } from './components/summary/summary.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ManageComponent } from './components/manage/manage.component';
 
 /**
  * The packaging that tells Angular what's available to render. A module describes the various dependencies
@@ -21,12 +25,14 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
   declarations: [
     AppComponent, // CLI generated "main" app component. Other components added here.
     SummaryComponent,
-    DashboardComponent
+    DashboardComponent,
+    ManageComponent
   ],
   // List of other modules used in the app. This list can consist of own created, or third party.
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   // List of services used in the app.
   providers: [StocksService],

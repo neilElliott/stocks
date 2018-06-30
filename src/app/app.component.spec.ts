@@ -4,7 +4,9 @@ import { StocksService } from './services/stocks.service';
 import { SummaryComponent } from './components/summary/summary.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ManageComponent } from './components/manage/manage.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -12,11 +14,13 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         SummaryComponent,
-        DashboardComponent
+        DashboardComponent,
+        ManageComponent
       ],
       imports: [
         BrowserModule,
-        HttpClientModule
+        HttpClientModule,
+        FormsModule
       ],
       providers: [
         StocksService
