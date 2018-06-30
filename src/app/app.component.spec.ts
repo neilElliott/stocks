@@ -1,12 +1,14 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { StocksService } from './services/stocks.service';
+import { AppRoutes } from './app.routes';
 import { SummaryComponent } from './components/summary/summary.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ManageComponent } from './components/manage/manage.component';
+import { APP_BASE_HREF } from '@angular/common';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -20,10 +22,12 @@ describe('AppComponent', () => {
       imports: [
         BrowserModule,
         HttpClientModule,
-        FormsModule
+        FormsModule,
+        AppRoutes
       ],
       providers: [
-        StocksService
+        StocksService,
+        {provide: APP_BASE_HREF, useValue : '/' } // for the AppRoutes
       ]
     }).compileComponents();
   }));
