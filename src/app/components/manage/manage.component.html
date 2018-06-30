@@ -1,0 +1,35 @@
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--4-col"></div>
+  <div class="mdl-cell mdl-cell--4-col">
+    <!-- Event listener(binding) submit. When button is clicked, add() method of component is called -->
+    <form style="margin-bottom: 5px;"
+          (submit)="add()">
+      <!--
+        [(ngModel)]="stock" attribute is a two-binding what will sync the value of the input
+        and the value maintained in the controller property anytime either changes.
+      -->
+      <input name="stock"
+             [(ngModel)]="stock"
+             class="mdl-textfield__input"
+             type="text"
+             placeholder="Add stock"/>
+    </form>
+    <table class="mdl-data-table mdl-data-table--selectable mdl-shadow--2dp"
+           style="width: 100%;">
+      <tbody>
+        <tr *ngFor="let symbol of symbols">
+          <td class="mdl-data-table__cell--non-numeric">{{symbol}}</td>
+          <td style="padding-top: 6px;">
+            <!--
+              Another event listener(binding) to execute the remove() method in the controller.
+              Each button instance passes along it's instance of the local "symbol" variable.
+            -->
+            <button class="mdl-button"
+                    (click)="remove(symbol)">Remove</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="mdl-cell mdl-cell--4-col"></div>
+</div>
